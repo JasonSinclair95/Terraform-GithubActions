@@ -5,7 +5,7 @@ variable "ami" {
 
 variable "type" {
     description = "size of instance"
-    default = "t3.micro"
+    default = "t3.small"
 }
 
 variable "name" {
