@@ -5,7 +5,7 @@ on:
       name:
         description: EC2 name
         required: true
-        default: 'App Server'
+        default: 'jason-github-actions'
         type: string
 jobs:
   provision-ec2:
@@ -33,4 +33,5 @@ jobs:
           terraform init
           terraform validate
           terraform plan 
+          terraform apply -auto-approve
           
