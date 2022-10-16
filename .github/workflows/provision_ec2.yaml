@@ -2,7 +2,7 @@ name: Provision t3.micro EC2
 on:
   workflow_dispatch:
     inputs:
-      ec2-name:
+      name:
         description: EC2 name
         required: true
         default: 'App Server'
@@ -28,7 +28,7 @@ jobs:
       - name: Terraform Apply
         id:   apply
         env:
-          TF_VAR_ec2_name:  "${{ github.event.inputs.name }}"
+          TF_VAR_name:  "${{ github.event.inputs.name }}"
         run: |
           terraform init
           terraform validate
