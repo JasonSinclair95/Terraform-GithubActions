@@ -1,14 +1,11 @@
 name: Provision t3.micro EC2
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: EC2 name
-        required: true
-        default: 'jason-github-actions'
-        type: string
+  pull_request:
+    types:
+      - closed 
 jobs:
   provision-ec2:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,8 +24,6 @@ jobs:
           terraform_wrapper: false
       - name: Terraform Apply
         id:   apply
-        env:
-          TF_VAR_name:  "${{ github.event.inputs.name }}"
         run: |
           terraform init
           terraform validate
