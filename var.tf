@@ -11,7 +11,7 @@ variable "type" {
 variable "name" {
     description = "name of resources"
     type = string
-    default = "jason-github-actions"
+    default = "jason-sinclair--github-actions"
 }
 
 variable "key" {
